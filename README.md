@@ -25,7 +25,7 @@ azure_public_ip_lb = "104.31.3.8" # the leased IP
 cloudflare_public_ips_cidr = "104.31.3.8/32" # route the leased IP to Azure
 azure_public_ips_cidr = "104.31.3.0/28" # choose a subnet containing the IP which is at least /29 (requirement Azure)
 
-# Option 2: a whole BYO IP range (untested, but should work):
+# Option 2: a whole BYO IP range (untested, but should work. make sure you have already onboarded the BYO range to Magic Transit):
 azure_public_ip_lb = "11.0.0.10" # pick a random IP after .4 which are reserved by Azure
 cloudflare_public_ips_cidr = "11.0.0.10/24"
 azure_public_ips_cidr = "11.0.0.10/24"
