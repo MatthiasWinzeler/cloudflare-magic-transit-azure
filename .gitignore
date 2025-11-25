@@ -1,0 +1,5 @@
+id_rsa_diagvm
+secrets.auto.tfvars
+terraform.tfstate*
+.terraform
+.idea
