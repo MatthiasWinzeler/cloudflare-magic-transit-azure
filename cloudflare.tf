@@ -55,6 +55,8 @@ resource "cloudflare_magic_wan_static_route" "azure_1" {
   prefix      = var.cloudflare_public_ips_cidr
   priority    = 100
   description = "public prefix to azure (1)"
+
+  depends_on = [cloudflare_magic_wan_ipsec_tunnel.azure_gw_1]
 }
 
 resource "cloudflare_magic_wan_static_route" "azure_2" {
@@ -63,6 +65,8 @@ resource "cloudflare_magic_wan_static_route" "azure_2" {
   prefix      = var.cloudflare_public_ips_cidr
   priority    = 100
   description = "public prefix to azure (2)"
+
+  depends_on = [cloudflare_magic_wan_ipsec_tunnel.azure_gw_2]
 }
 
 
@@ -72,6 +76,8 @@ resource "cloudflare_magic_wan_static_route" "azure_private_1" {
   prefix      = var.azure_vnet_cidr
   priority    = 100
   description = "private prefix to azure (1)"
+
+  depends_on = [cloudflare_magic_wan_ipsec_tunnel.azure_gw_1]
 }
 
 resource "cloudflare_magic_wan_static_route" "azure_private_2" {
@@ -80,4 +86,6 @@ resource "cloudflare_magic_wan_static_route" "azure_private_2" {
   prefix      = var.azure_vnet_cidr
   priority    = 100
   description = "private prefix to azure (2)"
+
+  depends_on = [cloudflare_magic_wan_ipsec_tunnel.azure_gw_2]
 }
