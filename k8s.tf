@@ -1,6 +1,6 @@
 resource "kubectl_manifest" "httpbin_service" {
   yaml_body = templatefile("${path.module}/httpbin-service.yaml", {
-    subnet = azurerm_subnet.aks.name
+    subnet = azurerm_subnet.public_ips.name
     ip = var.azure_public_ip_lb
   })
 }
